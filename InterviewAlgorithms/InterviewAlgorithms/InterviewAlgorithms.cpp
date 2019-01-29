@@ -4,18 +4,39 @@
 #include "pch.h"
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
-//Cracking the code intervew
+/*using of hash table in c++
+std::unordered_map<char, int> hash;
+char ch = 't';
+hash.insert({ ch, (int)ch });
+get pairs p
+for (auto& p : hash)
+	cout << "First:" << p.first << " Last:" << p.second << endl;
+
+Return value
+Iterator to an element with key equivalent to key.If no such element is found, past - the - end(see end()) iterator is returned.
+
+auto search = hash.find('t');
+if (search != hash.end()) {
+	std::cout << "Found " << search->first << " " << search->second << '\n';
+}
+else {
+	std::cout << "Not found\n";
+}*/
+
+
+//Cracking the code interview
 /*
-	1.1  Chekcs if given string contains unique characters
+	1.1  Checks if given string contains unique characters
 */
 void IsUnique()
 {
 	const int C_BUFF_LEN = 255;
 
-	//alocate space for unique chars
+	//allocate space for unique chars
 	char tmpBuff[C_BUFF_LEN];
 
 	string inpBuff = "123~!@#$%^tes"; //"this is not unique!";	
@@ -43,7 +64,20 @@ void IsUnique()
 }
 
 /*
-	1.3 Replaceses spacees in a string with %20
+	1.2 Given two strings, write a method do decide if one is a permutation of the other
+*/
+void CheckPermutation()
+{
+	string param1 = "abc";
+	string param2 = "bca";
+
+	string tmpBuff = param1 + param1;
+
+	int res = tmpBuff.find(param2);
+}
+
+/*
+	1.3 Replaces spaces in a string with %20
 */
 void Urlfy(string url)
 {
@@ -68,7 +102,44 @@ void Urlfy(string url)
 	cout << "Output :" << tmpBuff << endl;
 }
 
-/*pritns ount even or
+/*
+	Given a string, write a function to check if it is a permutation of a palindrome.
+	A palindrome is a word or phrase that is the same forwards and backwards. The palindrome does not
+	need to be limited to just dictionary words.
+*/
+void PalindromePermutation()
+{
+	string inpData = "ttat41tatt";
+
+	const int C_BUFF_MAX = 256;
+	int tmpBufer[C_BUFF_MAX];
+
+	//set all to 0
+	for (int i = 0; i < C_BUFF_MAX; i++)
+		tmpBufer[i] = 0;
+
+	for (int i = 0; i < inpData.length(); i++)
+	{
+		int currIndex = (int)inpData[i] % C_BUFF_MAX;
+		tmpBufer[currIndex]++;
+	}
+
+	int oddCount = 0;
+	for (int i = 0; i < C_BUFF_MAX; i++)
+	{
+		if (tmpBufer[i] % 2 == 1)
+		{
+			oddCount++;
+		}
+	}
+
+	if (oddCount > 1)
+		cout << "The word is NOT palindrome permutation!" << endl;
+	else
+		cout << "The word is palindrome permutation!" << endl;
+}
+
+/*prints out even or
 odd for given number*/
 void EvenOrOdd()
 {
@@ -86,10 +157,11 @@ void EvenOrOdd()
 
 int main()
 {
-	Urlfy("test bla bla");
+	//Urlfy("test bla bla");
 
-	IsUnique();
+	//CheckPermutation();
 
-	int t;
-	cin >> t;
+	//IsUnique();
+
+	PalindromePermutation();
 }
