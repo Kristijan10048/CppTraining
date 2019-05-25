@@ -1,0 +1,4 @@
+compile with comand prompt:
+
+- Open vs  developer command prompt window
+cl /EHsc hello.cpp
