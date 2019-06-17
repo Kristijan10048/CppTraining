@@ -1,5 +1,6 @@
 #include <string.h>
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -17,27 +18,50 @@ bool CompareBinWithHex(string binary, string hex)
 
 int ConvertFromBase(string number, int base) 
 {
-	if (base < 2 || (base> 10 && base != 16)) 
-		return -1;
+	if (base < 2 || (base> 10 && base != 16) ) 
+		return -10;
 	
 	int value = 0;
 	for (int i = number.length() - 1; i >= 0; i--) 
 	{
-		int digit = atoi(&number[i]);
+		const char c = number[i];
+		int digit = atoi(&c);
+		
+		cout<<"digit :"<<digit<<endl;
 		
 		if (digit < 0 || digit >= base)
 			return -1;
  
 		int exp = number.length() - 1 - i;
 		
-		value += digit * Math.pow(base, exp);
+		value += digit * pow(base, exp);
+		
+		cout<<"value"<<value<<endl;
 	}
- return value;
+	
+	return value;
  }
  
 int main(int argc, char *argv[])
 {
-	 int res = ConvertFromBase("1010",2);
+	
+	
+	
+	if(argc != 3)
+	{
+		cout<<"Wrong number of arguments!"<<endl;
+		return -1;
+	}
+	
+	
+	
+	int base = atoi(argv[2]);
+	string number(argv[1]);
+	
+	cout<<"Number :"<<atoi(argv[2]);
+	cout<<" Base:"<<base<<endl;
+	
+	int res = ConvertFromBase(number, base);
 	 
-	 cout<<"Res :"<<res<<endl;
+	cout<<"Res :"<<res<<endl;
 }
