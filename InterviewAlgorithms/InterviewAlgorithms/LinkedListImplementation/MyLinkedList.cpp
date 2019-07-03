@@ -4,7 +4,8 @@
 using namespace std;
 
 #if 1
-	void dbg(string arg) { cout << "dbg:" << arg << endl; }
+	//(string)printf
+	void dbg(string arg) { printf("dbg: %s \n", arg.c_str() ); }
 #endif
 
 
@@ -46,7 +47,7 @@ class MyList
 private:
 	Node * m_first = 0;
 	Node * m_last = 0;
-
+	int m_length = 0;
 public:
 	//Getter methods
 	Node* GetFirst() { return this->m_first; }
@@ -65,6 +66,8 @@ public:
 
 			//set last to point to first
 			this->m_last = this->m_first;
+			
+			m_length++;
 		}
 		else
 		{
@@ -73,6 +76,8 @@ public:
 
 			//shift last to last.next
 			this->m_last = this->m_last->m_next;
+			
+			m_length++;
 		}
 	}
 
@@ -83,6 +88,7 @@ public:
 		{
 			dbg("no shft");
 			this->m_first = new Node(data);
+			m_length++;
 		}
 		else
 		{
@@ -90,6 +96,34 @@ public:
 			
 			this->m_first = new Node(data, tmpNext);
 			//this->m_first->m_next = tmpNext;
+			
+			m_length++;
+		}
+	}
+	
+	//returns the lenght of the list
+	int Length() {return m_length;}
+	
+	//implementation of [] operator to access elemetns just like in a array
+	int operator[](int index)
+	{
+		if(index < 0 || index > m_length)
+			throw out_of_range("MyLinkedList");
+		Node* current = m_first;
+		
+		int i = 0;
+		try{
+			while( i < index)
+			{
+				current=current->m_next;
+				i++;
+			}
+			
+			return current->m_data;
+		}
+		catch(exception ex)
+		{
+			throw out_of_range("MyLinkedList");
 		}
 	}
 	
@@ -121,8 +155,13 @@ int main()
 
 	ml.InsertAtBeginning(66);
 	
+	dbg("List length is :" + std::to_string(ml.Length()));
+	
 	ml.PrintMe();
 	dbg("Print finished");
 
+	const int pos = 0;
+	//cout<<"Element at position "<<pos<<" is "<<ml[pos]<<endl;
+	printf("Element at position %d is %d", pos, ml[pos]);
 	return 0;
 }
