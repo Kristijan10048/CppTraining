@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//node for binary bst search tree
 class Node
 {
 	private:
@@ -45,6 +46,8 @@ class Node
 
 };
 
+
+//My binary search tree bst tree implementation
 class MyBinaryTree
 {
 	private:
@@ -72,6 +75,7 @@ class MyBinaryTree
 			}
 		}
 		
+		//recurse print of a binary search tree bst
 		void PrintMe(Node* parent)
 		{
 			if(!parent)
