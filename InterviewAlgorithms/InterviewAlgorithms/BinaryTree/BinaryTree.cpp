@@ -95,38 +95,48 @@ class MyBinaryTree
 			//if(!)
 			InOrder(parent->LeftNode);
 			
-			printf("Node : %d\n", parent->Data);
+			printf("IN Node : %d\n", parent->Data);
 			
 			InOrder(parent->RightNode);
 		}
 		
+		// Preorder (Root, Left, Right)
+		// 	1. Visit the root.
+		// 	2. Traverse the left subtree, i.e., call Preorder(left-subtree)
+		// 	3. Traverse the right subtree, i.e., call Preorder(right-subtree) 
 		void PreOrder(Node* parent)
 		{
 			if(!parent)
 				return;
 			
-			printf("Node : %d\n", parent->Data);
+			printf("PR Node : %d\n", parent->Data);
 			
-			InOrder(parent->LeftNode);		
+			PreOrder(parent->LeftNode);		
 			
-			InOrder(parent->RightNode);
+			PreOrder(parent->RightNode);
 		}
 		
+		// Postorder (Left, Right, Root)
+		// 	1. Traverse the left subtree, i.e., call Postorder(left-subtree)
+		// 	2. Traverse the right subtree, i.e., call Postorder(right-subtree)
+		// 	3. Visit the root.
 		void PostOrder(Node* parent)
 		{
 			if(!parent)
 				return;
 			
-			InOrder(parent->LeftNode);		
+			PostOrder(parent->LeftNode);		
 			
-			InOrder(parent->RightNode);
+			PostOrder(parent->RightNode);
 			
-			printf("Node : %d\n", parent->Data);
+			printf("PO Node : %d\n", parent->Data);
 		}
+		
+		
 	public:
 		Node* Root = 0;
 	
-		//inserts element in to the three
+		//inserts element in to the Binary Search Tree
 		void Insert(int data)
 		{
 			if(!Root)
@@ -136,18 +146,9 @@ class MyBinaryTree
 		}
 		
 		// Depth First Traversals:
-		// Inorder (Left, Root, Right)
-		// 	1. Traverse the left subtree, i.e., call Inorder(left-subtree)
-		// 	2. Visit the root.
-		// 	3. Traverse the right subtree, i.e., call Inorder(right-subtree)
-		// Preorder (Root, Left, Right)
-		// 	1. Visit the root.
-		// 	2. Traverse the left subtree, i.e., call Preorder(left-subtree)
-		// 	3. Traverse the right subtree, i.e., call Preorder(right-subtree) 
-		// Postorder (Left, Right, Root)
-		// 	1. Traverse the left subtree, i.e., call Postorder(left-subtree)
-		// 	2. Traverse the right subtree, i.e., call Postorder(right-subtree)
-		// 	3. Visit the root.
+		// 	-Inorder (Left, Root, Right)
+		// 	-Preorder (Root, Left, Right)
+		// 	-Postorder (Left, Right, Root)
 		
 		//travers the tree in oreder
 		void InOrder()
