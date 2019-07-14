@@ -8,8 +8,8 @@ int main()
 	const int c_max = 6;
 	
 	cout<<"Initial state of the array:"<<endl;
-	for(int i = 0; i < c_max; i++)
-		cout<<tmpArr[i]<<",";
+	for(auto i : tmpArr)
+		cout<<i<<",";
 	
 	cout<<endl;
 	
@@ -26,8 +26,8 @@ int main()
 		}
 	
 	cout<<"State of the array after buble sort :"<<endl;
-	for(int i = 0; i < c_max; i++)
-		cout<<tmpArr[i]<<",";
+	for(auto  i : tmpArr)
+		cout<<i<<",";
 	
 	return 0;
 }
