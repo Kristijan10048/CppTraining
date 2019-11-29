@@ -34,6 +34,8 @@ else {
 */
 void IsUnique()
 {
+	string s;
+
 	const int C_BUFF_LEN = 255;
 
 	//allocate space for unique chars
