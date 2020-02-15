@@ -4,11 +4,16 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-
-
 // settings
 const unsigned int C_INT_SCR_WIDTH = 800;
 const unsigned int C_INT_SCR_HEIGHT = 600;
+
+#pragma region Shaders 
+//Shaders are little programs that rest on the GPU.
+//These programs are run for each specific section of the graphics pipeline.
+//In a basic sense, shaders are nothing more than programs transforming inputs to outputs. 
+//Shaders are also very isolated programs in that they're not allowed to communicate with each other; 
+//the only communication they have is via their inputs and outputs.
 
 const char *vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
@@ -17,17 +22,30 @@ const char *vertexShaderSource = "#version 330 core\n"
 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 "}\0";
 
+//used for setting up the color of the triangles
+//static implementation
 const char *fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+"   FragColor = vec4(0.0f, 0.75f, 0.2f, 1.0f);\n"
 "}\n\0";
+
+const char *fragmentShaderSource_dynm_color = "#version 330 core\n"
+"out vec4 FragColor;\n"
+"uniform vec4 ourColor;\n"
+"void main()\n"
+"{\n"
+"   FragColor = ourColor;\n"
+"}\n\0";
+
+#pragma endregion
 
 //function declarations
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
 
+#pragma region Init functions
 bool Init(GLFWwindow** window) //pointer to a pointer to pass values
 {
 	// glfw: initialize and configure
@@ -86,7 +104,7 @@ bool InitShaders(int* shaderProgram)
 
 	// fragment shader
 	int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+	glShaderSource(fragmentShader, 1, &fragmentShaderSource_dynm_color, NULL);
 	glCompileShader(fragmentShader);
 
 	// check for shader compile errors
@@ -117,6 +135,7 @@ bool InitShaders(int* shaderProgram)
 
 	return true;
 }
+#pragma endregion
 
 int main()
 {
@@ -124,10 +143,8 @@ int main()
 	GLFWwindow* window = NULL;	
 
 	if (!Init(&window))
-	{
 		//in case where init failed
 		return -1; 
-	}
 
 	int shaderProgram = -1;
 	if (!InitShaders(&shaderProgram))
@@ -135,16 +152,25 @@ int main()
 
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
+
+	float offset = -0.15f;
 	float vertices[] = {
-		 0.5f,  0.5f, 0.0f,  // top right
-		 0.5f, -0.5f, 0.0f,  // bottom right
-		-0.5f, -0.5f, 0.0f,  // bottom left
-		-0.5f,  0.5f, 0.0f   // top left 
+		 // first triangle
+		 //x			y			z
+		 0.75f,			0.75f,		0.0f,  // top right
+		 0.75f,			-0.25f,		0.0f,  // bottom right
+		 0.0f,			0.75f,		0.0f,   // top left
+
+		 //second triangle
+		 //x			  y			z
+		-0.75f + offset,  0.75f,	0.0f,  // bottom right
+		-0.75f + offset, -0.25f,	0.0f,   // bottom left
+		 0.0f + offset,	  0.75f,	0.0f    // top left 
 	};
 
 	unsigned int indices[] = { 
-		0, 1, 3,  // first Triangle
-		1, 2, 3   // second Triangle
+		0, 1, 2,  // first Triangle
+		3, 4, 5   // second Triangle
 	};
 
 	unsigned int VBO, VAO, EBO;
@@ -189,8 +215,7 @@ int main()
 		// -----
 		processInput(window);
 
-		// render
-		// ------
+		// ------ render ------
 
 		//background color
 		// R, G, B, alpha --clears color buffers
@@ -201,9 +226,19 @@ int main()
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
 		
+		// update shader uniform
+		float timeValue = glfwGetTime();
+		float greenValue = sin(timeValue) / 2.0f + 0.5f;
+		
+		//access shader program
+		int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+
+		//pass the value;
+		glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.3f, 1.0f);
+
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		glcolor3
+		
 		// glBindVertexArray(0); // no need to unbind it every time 
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
