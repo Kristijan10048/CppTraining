@@ -1,0 +1,1 @@
+type be2.txt | SchedulerProblemCpp.exe
