@@ -40,3 +40,5 @@
 /OpenGl/Demo2/Demo2/x64/
 /InterviewAlgorithms/InterviewAlgorithms/.vs/
 /InterviewAlgorithms/InterviewAlgorithms/x64/Debug/
+/SchedulerProblem/SchedulerProblemCpp/.vs/
+*.suo
