@@ -18,5 +18,8 @@
     <ClCompile Include="Mai.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CAppBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
