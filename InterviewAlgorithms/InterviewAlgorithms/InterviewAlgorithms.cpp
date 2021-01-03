@@ -4,9 +4,15 @@
 #include "pch.h"
 #include <iostream>
 #include <string>
+#include <cstdio>
 #include <unordered_map>
 
 using namespace std;
+
+/***********************************************************************************	
+			 Cracking the Coding Interview - 2016
+					Gayle Laakmann McDowell
+************************************************************************************/
 
 /*using of hash table in c++
 std::unordered_map<char, int> hash;
@@ -116,16 +122,18 @@ void PalindromePermutation()
 	const int C_BUFF_MAX = 256;
 	int tmpBufer[C_BUFF_MAX];
 
-	//set all to 0
+	//set the tmp container to 0
 	for (int i = 0; i < C_BUFF_MAX; i++)
 		tmpBufer[i] = 0;
 
+	//store the count of all chars in to a hash table
 	for (int i = 0; i < inpData.length(); i++)
 	{
 		int currIndex = (int)inpData[i] % C_BUFF_MAX;
 		tmpBufer[currIndex]++;
 	}
 
+	//check the count of odd characters 
 	int oddCount = 0;
 	for (int i = 0; i < C_BUFF_MAX; i++)
 	{
@@ -156,14 +164,36 @@ void EvenOrOdd()
 
 }
 
+//One Away : There are three types of edits that can be performed on strings : insert a character,
+//remove a character, or replace a character.Given two strings, write a function to check if they are
+//one edit(or zero edits) away
+void OneAway()
+{
+	string sInp = "test";
+	string sTest = "ts";
+	bool res;
+
+	char buff[100];
+	//snprintf(buff, sizeof(buff), "%s, %s -> %B", "Hello");
+	//std::string buffAsStdStr = buff;
+
+
+	if (abs(static_cast<int>(sInp.length() - sTest.length())) > 1)
+	{
+		res = false;
+		snprintf(buff, sizeof(buff), "%s, %s ->", sInp, sTest);
+		printf(buff);
+	}
+
+}
 
 int main()
 {
 	//Urlfy("test bla bla");
-
 	//CheckPermutation();
-
 	//IsUnique();
+	//PalindromePermutation();
 
-	PalindromePermutation();
+	OneAway();
+
 }
