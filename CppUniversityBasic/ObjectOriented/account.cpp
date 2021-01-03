@@ -164,16 +164,22 @@ void Employee::PrintPersonalData()
 	//ch.printaccount();
 }
 
-worker wl[100];
-man ml[100];
+Employee wl[100];
+Person ml[100];
 
 void AddPerson(int& dol);
 void PrintPerson(int dol);
+void clrscr();
+
+void clrscr()
+{
+	std::system("cls");
+}
 
 
 void AddPerson(int& dol)
 {
-	wl[dol].enterdata();
+	wl[dol].EnterPersonalData();
 	dol++;
 }
 
@@ -182,7 +188,7 @@ void PrintPerson(int dol)
 {
 	for (int i = 0; i <= dol; i++)
 	{
-		wl[i].printdata();
+		wl[i].PrintPersonalData();
 		cout << endl << "------------------" << endl;
 	}
 	system("pause");
@@ -192,7 +198,7 @@ void PrintPerson(int dol)
 int main(int argc, char* argv[])
 {
 	int mdol = 0, wdol = 0;
-	char zn;
+	char key;
 	do
 	{
 		clrscr();
@@ -201,29 +207,30 @@ int main(int argc, char* argv[])
 			<< "3.Print list of employees" << endl
 			<< "4.Print workers list" << endl
 			<< "0.Exit";
-		zn = getch();
-		switch (zn)
+		key = getch();
+		
+		switch (key)
 		{
-		case '1':
-		{
-			AddPerson(mdol);
-			break;
-		}
-		case '2':
-		{
-			break;
-		}
-		case '3':
-		{
-			PrintPerson(mdol);
-			break;
-		}
-		case '4':
-		{
-			break;
-		}
+			case '1':
+			{
+				AddPerson(mdol);
+				break;
+			}
+			case '2':
+			{
+				break;
+			}
+			case '3':
+			{
+				PrintPerson(mdol);
+				break;
+			}
+			case '4':
+			{
+				break;
+			}
 		}
 
-	} while (zn != '0');
+	} while (key != '0');
 	return 0;
 }
