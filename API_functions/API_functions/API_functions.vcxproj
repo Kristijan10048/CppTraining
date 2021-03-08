@@ -142,6 +142,7 @@
     <ClCompile Include="..\conteiners\list\list.cpp" />
     <ClCompile Include="..\conteiners\map\map.cpp" />
     <ClCompile Include="..\conteiners\set\cppset.cpp" />
+    <ClCompile Include="..\conteiners\vector\vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

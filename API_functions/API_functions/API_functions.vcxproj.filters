@@ -24,5 +24,8 @@
     <ClCompile Include="..\conteiners\set\cppset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\conteiners\vector\vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
