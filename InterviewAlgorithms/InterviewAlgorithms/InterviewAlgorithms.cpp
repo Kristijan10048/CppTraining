@@ -1,11 +1,15 @@
 // InterviewAlgorithms.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "pch.h"
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "catch.hpp"
+
 #include <iostream>
 #include <string>
 #include <cstdio>
 #include <unordered_map>
+
+
 
 using namespace std;
 
@@ -187,13 +191,16 @@ void OneAway()
 
 }
 
-int main()
-{
-	//Urlfy("test bla bla");
-	//CheckPermutation();
-	//IsUnique();
-	//PalindromePermutation();
+//int main()
+//{
+//	//Urlfy("test bla bla");
+//	//CheckPermutation();
+//	//IsUnique();
+//	//PalindromePermutation();
+//
+//	OneAway();
+//}
 
-	OneAway();
 
+TEST_CASE("exceptions", "") {
 }
