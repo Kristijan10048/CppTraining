@@ -8,8 +8,6 @@ using namespace std;
 void dbg(string arg) { cout << "dbg:" << arg << endl; }
 #endif
 
-
-
 class Node
 {
 public:
@@ -41,8 +39,8 @@ public:
 class MyList
 {
 private:
-	Node * m_first = 0;
-	Node * m_last = 0;
+	Node* m_first = 0;
+	Node* m_last = 0;
 
 public:
 	//Getter methods
@@ -79,7 +77,7 @@ public:
 		if (!this->m_first)
 			return;
 
-		Node * current = this->m_first;
+		Node* current = this->m_first;
 
 		dbg("First :" + std::to_string(current->GetData()));
 
@@ -90,7 +88,6 @@ public:
 		}
 	}
 };
-
 
 
 int main()

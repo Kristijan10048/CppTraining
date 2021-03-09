@@ -1,9 +1,7 @@
 // InterviewAlgorithms.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
-#include "catch.hpp"
-
+// This tells Catch to provide a main() - only do this in one cpp file
 #include <iostream>
 #include <string>
 #include <cstdio>
@@ -13,7 +11,7 @@
 
 using namespace std;
 
-/***********************************************************************************	
+/***********************************************************************************
 			 Cracking the Coding Interview - 2016
 					Gayle Laakmann McDowell
 ************************************************************************************/
@@ -84,7 +82,6 @@ void CheckPermutation()
 	string param2 = "bca";
 
 	string tmpBuff = param1 + param1;
-
 	int res = tmpBuff.find(param2);
 }
 
@@ -119,10 +116,8 @@ void Urlfy(string url)
 	A palindrome is a word or phrase that is the same forwards and backwards. The palindrome does not
 	need to be limited to just dictionary words.
 */
-void PalindromePermutation()
+bool PalindromePermutation(const string inpData)
 {
-	string inpData = "ttat41tatt";
-
 	const int C_BUFF_MAX = 256;
 	int tmpBufer[C_BUFF_MAX];
 
@@ -151,6 +146,8 @@ void PalindromePermutation()
 		cout << "The word is NOT palindrome permutation!" << endl;
 	else
 		cout << "The word is palindrome permutation!" << endl;
+
+	return oddCount < 1;
 }
 
 /*prints out even or
@@ -197,10 +194,16 @@ void OneAway()
 //	//CheckPermutation();
 //	//IsUnique();
 //	//PalindromePermutation();
-//
 //	OneAway();
 //}
 
+#define CATCH_CONFIG_MAIN  
+#include "catch.hpp"
+TEST_CASE("PalindromePermutation", "Pal")
+{
+	CHECK( 7 == 7);
 
-TEST_CASE("exceptions", "") {
+	CHECK(PalindromePermutation("PalindromePermutation") == true);
+	//CHECK( PalindromePermutation('PalindromePermutation') == true);
+	//string inpData = "ttat41tatt";
 }
