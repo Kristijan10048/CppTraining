@@ -1,3 +1,4 @@
+#ifdef NOT_FIXED
 #define NIL 0
 #include <iostream.h>
 #include <stdlib.h>
@@ -122,6 +123,4 @@ void Brisi (Lista **L, int vrednost)
    }
  if(!najden) cout << "Elementot go nema vo listata. \n";
 }
-
-
-
+#endif
