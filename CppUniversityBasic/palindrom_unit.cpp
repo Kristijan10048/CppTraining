@@ -1,4 +1,4 @@
-
+#ifdef NOT_FIXED
 
 #include <vcl.h>
 #pragma hdrstop
@@ -31,4 +31,4 @@ cin>>g;
 
         return 0;
 }
-
+#endif

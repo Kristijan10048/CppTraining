@@ -23,8 +23,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  * 
  ***************************************************************************/
-
-
+#ifdef NOT_FIXED
 #include <windows.h>
 #include <winnt.h>
 #include <conio.h>
@@ -363,4 +362,4 @@ ReceiveOutput (HANDLE hEvent)
     CloseHandle (hPipe);
     return;
 }
-
+#endif

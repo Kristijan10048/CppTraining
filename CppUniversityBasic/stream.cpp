@@ -1,3 +1,4 @@
+#ifdef NOT_FIXED
 #include <sys\stat.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -25,3 +26,4 @@ int main(void)
    return 0;
 
 } 
+#endif
