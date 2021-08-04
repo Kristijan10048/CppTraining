@@ -1,7 +1,9 @@
-#ifdef NOT_FIXED
 # include <iostream>
 # include <conio.h>
-int main(int argc, char* argv[])
+
+using namespace std;
+
+int ProzvodNaProstiMnoziteli(int argc, char* argv[])
 {
 	int n;
 	cout << "Vnesete nekoj broj:";
@@ -17,7 +19,6 @@ int main(int argc, char* argv[])
 		}
 		i += 1;
 	}
-	getch();
+	_getch();
 	return 0;
 }
-#endif

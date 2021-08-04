@@ -1,9 +1,9 @@
-#ifdef NOT_FIXED
-# include <iostream>
-# include <fstream.h>
-# include <conio.h>
-# include <dos.h>
-# include <string.h>
+#include <iostream>
+#include <fstream>
+#include <conio.h>
+#include <dos.h>
+#include <string.h>
+#include "..\CppUniversityBasic\UniversityBasic\MyClScr.h"
 
 using namespace std;
 
@@ -19,7 +19,6 @@ void vnpath()
 	clrscr();
 	cout << "Vnesete ja patekata na datotekata :" << endl;
 	cin >> pt;
-
 }
 
 void newdat(char path[40])
@@ -36,7 +35,7 @@ void newdat(char path[40])
 	}
 	cout << "Pritisnete bilo koj taster za da prodolzite";
 	f.close();
-	getch();
+	_getch();
 }
 
 void appdat(char path[40])
@@ -54,7 +53,7 @@ void appdat(char path[40])
 		cout << "Za izlez pritisnete Esc" << endl;
 		do
 		{
-			buf = getche();
+			buf = _getche();
 			if( buf == '\r' )
 			{
 				buf = '\n';
@@ -108,16 +107,17 @@ void wordindat(char path[40])
 			}
 			else
 			{
-				red = red + 1; i = 1;
+				red = red + 1;
+				i = 1;
 			}
 		}
 		while( !f.eof() );
 	}
 
-	getch();
+	_getch();
 }
 
-int main(int argc, char* argv[])
+int ZborVoDatoteka(int argc, char* argv[])
 {
 	char zn;
 	do
@@ -128,7 +128,7 @@ int main(int argc, char* argv[])
 		cout << "2.Otvaranje na postoecka datoteka i dodavanje na tekst" << endl;
 		cout << "3.Otvoranje na postoecka datoteka i baranje na daden zbor" << endl;
 		cout << "0.Izlez" << endl;
-		zn = getch();
+		zn = _getch();
 		switch( zn )
 		{
 		case '1':
@@ -152,4 +152,3 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
-#endif

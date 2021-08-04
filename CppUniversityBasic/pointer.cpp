@@ -1,10 +1,9 @@
 #ifdef NOT_FIXED
 
-#include <iostream>
+#include<iostream>
 #include<conio.h>
-#pragma hdrstop
-#pragma argsused
-#include <string.h>
+#include<string.h>
+
 void printadr(int* pok);
 void intpok();
 void charpok();
@@ -55,6 +54,7 @@ char* invertch(char pcharni[20])
 	}
 	return pcharni;
 }
+
 void charpok()
 {
 	char* pass, * pochar[20], ni[20];

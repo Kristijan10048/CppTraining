@@ -8,6 +8,13 @@ using namespace std;
 string s;
 
 bool palindrom(string st);
+void substr();
+
+/// <summary>
+/// Checks if given string is palindrome
+/// </summary>
+/// <param name="st"></param>
+/// <returns></returns>
 bool palindrom(string st)
 {
 	int i, dol;
@@ -18,13 +25,14 @@ bool palindrom(string st)
 	return(true);
 }
 
-void substr();
+
 void substr()
 {
 	int i, j, k, dol;
 	dol = s.length();
 	string pom;
 	for( k = 1; k <= dol - 1; k++ )
+	{
 		for( i = 0; i <= dol - 1 - k; i++ )
 		{
 			pom.clear();
@@ -37,7 +45,7 @@ void substr()
 				cout << "---Podnizata go ima baraniot oblik" << endl;
 			cout << endl;
 		}
-
+	}
 }
 
 
@@ -50,4 +58,3 @@ int main2(int argc, char* argv[])
 
 	return 0;
 }
-//---------------------------------------------------------------------------

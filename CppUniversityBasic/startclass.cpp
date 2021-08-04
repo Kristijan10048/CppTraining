@@ -2,13 +2,10 @@
 # include <conio.h>
 # include <string.h>
 # include <dos.h>
+#include "UniversityBasic/MyClScr.h"
 
 using namespace std;
 
-void clrscr()
-{
-	std::system("cls");
-}
 
 class personaldat
 {
