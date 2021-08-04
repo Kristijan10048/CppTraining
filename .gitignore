@@ -56,3 +56,6 @@
 /API_functions/API_functions/Debug/
 /CppAsembly/MASAM_Test-PrintString/.vs/
 *.tlog
+/CppUniversityBasic/UniversityBasic/Debug/
+*.ipch
+*.db
