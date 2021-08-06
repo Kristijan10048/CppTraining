@@ -4,13 +4,13 @@
 using namespace std;
 
 //const keyword means that the function is not changing the argument
-void PrintList(const std::list<int> list)
+void PrintList(const std::list<int> &list)
 {
 	for(int it:list)
 		cout<<"Element :"<<it<<endl;
 }
 
-void main()
+void MainList()
 {
 	std::list<int> lst = {2, 3, 5, 7};
 

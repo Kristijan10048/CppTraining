@@ -3,7 +3,7 @@
 using namespace std;
 
 //prints the contet of a given set
-void PrintSet(std::set<int> set)
+void PrintSet(const std::set<int> &set)
 {
 	//iterators
 	for (auto it = set.begin(); it != set.end(); ++it)
@@ -13,7 +13,7 @@ void PrintSet(std::set<int> set)
 }
 
 //prints the contet of a given set
-void PrintSetInReverse(std::set<int> set)
+void PrintSetInReverse(const std::set<int> &set)
 {
 	//iterators
 	for (auto it = set.rbegin(); it != set.rend(); ++it)
@@ -29,7 +29,7 @@ void InsertElements(std::set<int> *set)
 		set->insert(i);
 }
 
-void main()
+void MainSets()
 {
 	std::set<int> mySet = {1, 3, 5, 6, 7};
 	

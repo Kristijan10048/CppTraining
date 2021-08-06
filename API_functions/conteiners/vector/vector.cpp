@@ -17,7 +17,7 @@ double Magnitude(std::vector<double> v)
 	return sqrt(res);
 }
 
-void main()
+void MainVector()
 {
 	std::vector<int> v1 = {1, 2, 3, 4, 5, 6};
 	
