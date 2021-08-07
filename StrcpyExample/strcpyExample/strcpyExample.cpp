@@ -1,12 +1,8 @@
-// strcpyExample.cpp : Defines the entry point for the console application.
-
-#include "stdafx.h"
-#include <stdio.h>
-#include <string.h>
+#include <string>
 #include <iostream>
 using namespace std;
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
 	char str1[] = "Sample string";
 	char mail[] = "mail to:";

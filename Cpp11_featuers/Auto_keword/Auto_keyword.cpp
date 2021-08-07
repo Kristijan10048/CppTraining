@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(int argc, const char * argv[])
+int MainAutoKeyword(int argc, const char * argv[])
 {
 	vector<int> myVect;
 	const int c_max = 10;
