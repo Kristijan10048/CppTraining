@@ -61,3 +61,7 @@
 *.db
 /CppUniversityBasic/UniversityBasic/.vs/
 /CppUniversityBasic/ObjectOriented/.vs/
+/StrcpyExample/strcpyExample/Debug/
+/Cpp11_featuers/Cpp11_featuers/Debug/
+/Cpp11_featuers/Cpp11_featuers/log_frame.txt
+/CppAsembly/MASAM_Test-PrintString/Debug/
