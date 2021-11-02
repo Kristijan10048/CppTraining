@@ -5,14 +5,18 @@
 #include <chrono>
 #include <string>
 #include "../loguru.hpp"
+#include "MyTemplates.h"
 
+/// <summary>
+/// Timer class
+/// </summary>
 class MyTimer
 {
 private:
 	std::chrono::time_point<std::chrono::high_resolution_clock>  m_startTime;
 public:
 	/// <summary>
-	/// Defualt
+	/// Defualt constructor
 	/// </summary>
 	MyTimer()
 	{
@@ -30,6 +34,10 @@ public:
 		std::cout << duration << "us" << "(" << microS << ")" << std::endl;
 	}
 };
+
+/// <summary>
+/// Runner 1 funct
+/// </summary>
 void Runner1()
 {
 	LOG_F(INFO, "Running runer 1" );
@@ -37,7 +45,9 @@ void Runner1()
 	LOG_F(INFO, "Done with runer 1" );
 }
 
-
+/// <summary>
+/// Runner 2 funct
+/// </summary>
 void Runner2()
 {
 	LOG_F(INFO, "Running runer 2" );
@@ -45,6 +55,9 @@ void Runner2()
 	LOG_F(INFO, "Done with runer 2");
 }
 
+/// <summary>
+/// Writes 680x 640 range data in to a file
+/// </summary>
 void WriteFrameToFileDemo()
 {
 	LOG_F(INFO, "Running Writing to a file" );
@@ -66,18 +79,7 @@ void WriteFrameToFileDemo()
 
 int main(int argc, char* argv[])
 {
-	//char *log[1];// = { "t1", "t2" };
-
-	//const char* name = "test.txt";
-	//
-	//log[0] = &name;
-
-	//strcpy_s(argc, strlen(name), name);
-	//int argc = 1;
-
-	loguru::init(argc, argv, loguru::Options() );
-
-	
+	loguru::init(argc, argv, loguru::Options() );	
 
 	{
 		LOG_F(INFO, "Running in sync" );
@@ -85,6 +87,7 @@ int main(int argc, char* argv[])
 		Runner1();
 		Runner2();
 	}
+
 	{
 		LOG_F(INFO, "Running async");
 		MyTimer timer;
@@ -98,5 +101,13 @@ int main(int argc, char* argv[])
 		auto res3 = std::async(std::launch::async, WriteFrameToFileDemo);
 		auto res1 = std::async(std::launch::async, Runner1);
 		auto res2 = std::async(std::launch::async, Runner2);		
+	}
+
+	{
+		LOG_F(INFO, "Running templates function");
+		/*MyTemplateTest<int>(23);
+		MyTemplateTest("Test");
+		MyTemplateTest('')*/
+		MyTemplateTest(23);
 	}
 }
