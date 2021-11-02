@@ -139,12 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Cpp11_featuers\Cpp11_featuers\MyTemplates.h" />
     <ClInclude Include="..\Cpp11_featuers\loguru.hpp" />
+    <ClInclude Include="MyTemplates.h" />
+    <ClInclude Include="Tester.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Cpp11_featuers\Cpp11_featuers\MyTemplates.cpp" />
     <ClCompile Include="..\Cpp11_featuers\loguru.cpp" />
+    <ClCompile Include="MyTemplates.cpp" />
+    <ClCompile Include="MyTemplatesMain.cpp" />
+    <ClCompile Include="Tester.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
